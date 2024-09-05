@@ -256,3 +256,65 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &4486317737324928477 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7486608207858073514, guid: 7c89b8843f664754898ed7e3f65d718c, type: 3}
+  m_PrefabInstance: {fileID: 2763138374625779083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3413303285588282040
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4486317737324928477}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.041
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710665
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710695
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000001071021
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000003259629
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
+      propertyPath: m_Name
+      value: sword
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27718fb25a1ce8c48a658c9d754b13d1, type: 3}
