@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator AnimController;
     [Header("Tweaks")]
     public float speed = 10f;
     public float turnSpeed = 5f;
@@ -41,11 +43,12 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessInputs()
     {
+
         if (!!self_rb && !isMoving)
         {
             self_rb.velocity = new Vector3(0f, self_rb.velocity.y, 0f);
             self_rb.angularVelocity = Vector3.zero;
-            
+            AnimController.SetBool("IsRunning", false);
             return;
         }
 
@@ -55,12 +58,14 @@ public class PlayerController : MonoBehaviour
             float y_turn = turnSpeed * Time.fixedDeltaTime;
             transform.Rotate( new Vector3(0f,-1f*y_turn, 0f));
             isMoving = true;
+            AnimController.SetBool("IsRunning", false);
         } 
         else if (hMove > 0f) 
         {
             float y_turn = turnSpeed * Time.fixedDeltaTime;
             transform.Rotate( new Vector3(0f,y_turn, 0f));
             isMoving = true;
+            AnimController.SetBool("IsRunning", false);
         }
         
         // forward/backward
@@ -70,13 +75,17 @@ public class PlayerController : MonoBehaviour
             Vector3 translation = new Vector3(0f, 0f, speed * Time.fixedDeltaTime);
             transform.Translate(translation);
             isMoving = true;
+            AnimController.SetBool("IsRunning", isMoving);
         } else if ( vMove < 0f )
         {
             // move backward
-            Vector3 translation = new Vector3(0f, 0f, speed * Time.fixedDeltaTime * -1);
+            Vector3 translation = new Vector3(0f, 0f, (speed/2f) * Time.fixedDeltaTime * -1);
             transform.Translate(translation);
             isMoving = true;
+            AnimController.SetBool("IsRunning", false);
         }
+
+       
 
 
 
