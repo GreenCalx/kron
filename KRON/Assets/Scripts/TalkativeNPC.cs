@@ -11,6 +11,7 @@ public class TalkativeNPC : MonoBehaviour
     public List<Sprite> spritesToAnimate;
     public float animFrameDuration = 0.5f;
     public bool animateBubble = true;
+    public bool playerInTalkTrigger = false;
 
     private Coroutine animateBubbleCo;
 
@@ -18,7 +19,9 @@ public class TalkativeNPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        uiImageTarget.gameObject.SetActive(false);
+        playerInTalkTrigger = false;
+        animateBubble = false;
     }
 
     void Update()
@@ -26,6 +29,10 @@ public class TalkativeNPC : MonoBehaviour
         if (animateBubble && (animateBubbleCo==null))
         {
             StartBubbleAnim();
+        }
+        if (!animateBubble && (animateBubbleCo!=null))
+        {
+            StopBubbleAnim();
         }
     }
 
@@ -56,5 +63,10 @@ public class TalkativeNPC : MonoBehaviour
                 spriteIndex = 0;
             yield return new WaitForSeconds(animFrameDuration);
         }
+    }
+
+    public void PlayerCanTalk(bool iState)
+    {
+        animateBubble = iState;
     }
 }

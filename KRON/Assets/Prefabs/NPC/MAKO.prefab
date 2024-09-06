@@ -1,5 +1,93 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7842660245517439653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4616987395753477412}
+  - component: {fileID: 4690401050235184218}
+  - component: {fileID: 6020124303525218008}
+  m_Layer: 0
+  m_Name: TalkTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4616987395753477412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842660245517439653}
+  m_LocalRotation: {x: 0.10933534, y: 0, z: 0, w: 0.99400496}
+  m_LocalPosition: {x: 0, y: 2.77, z: 1.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7954030598495374100}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 12.554, y: 0, z: 0}
+--- !u!65 &4690401050235184218
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842660245517439653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6020124303525218008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842660245517439653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66ca281d50f33545926a54f5254930a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callbackOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7954030598495374099}
+        m_TargetAssemblyTypeName: TalkativeNPC, Assembly-CSharp
+        m_MethodName: PlayerCanTalk
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  callbackOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7954030598495374099}
+        m_TargetAssemblyTypeName: TalkativeNPC, Assembly-CSharp
+        m_MethodName: PlayerCanTalk
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7954030597233790370
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,13 +306,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7954030598495374101}
-  m_LocalRotation: {x: 0.21919662, y: 0.7307151, z: -0.5858954, w: 0.27337694}
+  m_LocalRotation: {x: 0.21919706, y: 0.7307151, z: -0.5858949, w: 0.27337772}
   m_LocalPosition: {x: -5.002, y: 0.827, z: 6.898}
   m_LocalScale: {x: 0.27402437, y: 0.27402437, z: 0.27402437}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7631593466661825511}
   - {fileID: 7954030597233790369}
+  - {fileID: 4616987395753477412}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 77.446, y: 138.976, z: 0}
@@ -248,6 +337,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 15f0569bc42714445bf5fb7edbaa3733, type: 3}
   animFrameDuration: 0.5
   animateBubble: 1
+  playerInTalkTrigger: 0
 --- !u!1001 &7954030597023501324
 PrefabInstance:
   m_ObjectHideFlags: 0
