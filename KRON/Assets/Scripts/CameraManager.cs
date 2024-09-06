@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    public readonly string showBuildingLayer = "ShowBuildingTop";
     [Header("Mandatory Refs")]
     public Camera h_farCamera;
     public Camera h_FPSCamera;
@@ -14,7 +15,7 @@ public class CameraManager : MonoBehaviour
 
     void Start()
     {
-        //initCullingMaskFarCam = h_farCamera.cullingMask;
+        initCullingMaskFarCam = h_farCamera.cullingMask;
         activeCamera = null;
         changeCamera();
     }
@@ -28,10 +29,11 @@ public class CameraManager : MonoBehaviour
 
     public void ShowBuildingTop(bool iState)
     {
-        Debug.Log("Before : " + h_farCamera.cullingMask);
-        var bitVal = iState?1:0;
-        h_farCamera.cullingMask |= 1 << 5;
-        Debug.Log("after : " + h_farCamera.cullingMask);
+        int layerID = LayerMask.NameToLayer(showBuildingLayer);
+        if (!iState)
+            h_farCamera.cullingMask &= ~(1 << layerID);
+        else
+            h_farCamera.cullingMask = initCullingMaskFarCam;
     }
 
     void changeCamera()

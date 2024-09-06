@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 7673305865563406774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.24, y: 0.03, z: 8.76}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7924002707007397786}
   - {fileID: 6577198416572131387}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6726e96e140f88f4ca84dd27f512ae88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraManager: {fileID: 0}
   ToCullOnEnter:
   - {fileID: 7506564238838383319}
   - {fileID: 2153306085884925303}
@@ -134,7 +135,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
