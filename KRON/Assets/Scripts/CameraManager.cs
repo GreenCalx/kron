@@ -10,8 +10,11 @@ public class CameraManager : MonoBehaviour
     [Header("Internals")]
     public Camera activeCamera;
 
+    private int initCullingMaskFarCam;
+
     void Start()
     {
+        //initCullingMaskFarCam = h_farCamera.cullingMask;
         activeCamera = null;
         changeCamera();
     }
@@ -21,6 +24,14 @@ public class CameraManager : MonoBehaviour
         {
             changeCamera();
         }
+    }
+
+    public void ShowBuildingTop(bool iState)
+    {
+        Debug.Log("Before : " + h_farCamera.cullingMask);
+        var bitVal = iState?1:0;
+        h_farCamera.cullingMask |= 1 << 5;
+        Debug.Log("after : " + h_farCamera.cullingMask);
     }
 
     void changeCamera()

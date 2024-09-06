@@ -4800,6 +4800,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7673305865563406773, guid: a220e7ff293e39541b3df492e391656a, type: 3}
+      propertyPath: cameraManager
+      value: 
+      objectReference: {fileID: 169588348}
     - target: {fileID: 7673305865563406774, guid: a220e7ff293e39541b3df492e391656a, type: 3}
       propertyPath: m_Name
       value: Building_Tower

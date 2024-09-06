@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    public CameraManager cameraManager;
 
     public List<MeshRenderer> ToCullOnEnter;
     public bool isShown = true;
@@ -18,20 +19,12 @@ public class Building : MonoBehaviour
 
     public void CullToggle()
     {
-        // if (!isShown && !playerIsIn)
-        // {
-        //     isShown = true;
-        // } else if (playerIsIn && !isShown) {
-        //     return;
-        // } else {
-        //     isShown = !isShown;
-        // }
-
         isShown = !isShown;
-        foreach(MeshRenderer mr in ToCullOnEnter)
-        {
-            mr.gameObject.SetActive(isShown);
-        }
+        // foreach(MeshRenderer mr in ToCullOnEnter)
+        // {
+        //     mr.gameObject.SetActive(isShown);
+        // }
+        cameraManager.ShowBuildingTop(isShown);
     }
 
     public void PlayerIsInToggle()
