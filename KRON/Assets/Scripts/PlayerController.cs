@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("Internals")]
     public Rigidbody self_rb;
     public float hMove, vMove;
+    public bool playerDoAction;
     private bool isMoving = false;
 
     void Start()
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         hMove = Input.GetAxis("Horizontal");
         vMove = Input.GetAxis("Vertical");
+        playerDoAction = Input.GetKeyUp(KeyCode.T);
 
         isMoving = (hMove!=0f)||(vMove!=0f);
     }

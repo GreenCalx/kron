@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 public class TalkativeNPC : MonoBehaviour
 {
+    [Header("Self Refs")]
+    public Camera dialogCam;
+    public string dialog = "Hello world"; // TODO : make dialogbank & load lines
+
     [Header("Animation")]
     public Image uiImageTarget;
     public List<Sprite> spritesToAnimate;
@@ -15,6 +19,9 @@ public class TalkativeNPC : MonoBehaviour
 
     private Coroutine animateBubbleCo;
 
+    [Header("Internals")]
+    private bool playerIsTalking = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +29,7 @@ public class TalkativeNPC : MonoBehaviour
         uiImageTarget.gameObject.SetActive(false);
         playerInTalkTrigger = false;
         animateBubble = false;
+        playerIsTalking = false;
     }
 
     void Update()
@@ -34,6 +42,29 @@ public class TalkativeNPC : MonoBehaviour
         {
             StopBubbleAnim();
         }
+
+        if (playerInTalkTrigger)
+        {
+            if (Access.Player().playerDoAction)
+            {
+                if (!playerIsTalking)
+                    StartTalk(); 
+                else // TODO : exhaust dialog first
+                    StopTalk();
+            }
+        }
+    }
+
+    private void StartTalk()
+    {
+        playerIsTalking = true;
+        Access.PUX().ShowDialog(dialogCam);
+    }
+
+    private void StopTalk()
+    {
+        playerIsTalking = false;
+        Access.PUX().HideDialog();
     }
 
     private void StartBubbleAnim()
@@ -68,5 +99,11 @@ public class TalkativeNPC : MonoBehaviour
     public void PlayerCanTalk(bool iState)
     {
         animateBubble = iState;
+        playerInTalkTrigger = iState;
+
+        if (!iState && playerIsTalking)
+        {
+            StopTalk();
+        }
     }
 }

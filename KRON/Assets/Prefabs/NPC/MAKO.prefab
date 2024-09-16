@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1644774214105474590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8806187608117872543}
+  - component: {fileID: 7081236423482116866}
+  m_Layer: 0
+  m_Name: DialogCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8806187608117872543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644774214105474590}
+  m_LocalRotation: {x: -0.07676488, y: -0.7742799, z: 0.62083143, w: 0.095739834}
+  m_LocalPosition: {x: 1.4000006, y: 6.400002, z: 1.1000016}
+  m_LocalScale: {x: 3.6493077, y: 3.6493084, z: 3.6493084}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7954030598495374100}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 71.208, y: -130.875, z: 47.567}
+--- !u!20 &7081236423482116866
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644774214105474590}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000.01
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 4204dd1c5163bf649b242b925177f8bd, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &7842660245517439653
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +389,7 @@ Transform:
   - {fileID: 7631593466661825511}
   - {fileID: 7954030597233790369}
   - {fileID: 4616987395753477412}
+  - {fileID: 8806187608117872543}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 77.446, y: 138.976, z: 0}
@@ -329,6 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50776c674ca0ac04287e18f3f48da8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogCam: {fileID: 7081236423482116866}
+  dialog: Hello world
   uiImageTarget: {fileID: 7954030598167074851}
   spritesToAnimate:
   - {fileID: 21300000, guid: bde3107d52b15f440b257098b8f057d7, type: 3}
