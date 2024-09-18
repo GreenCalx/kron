@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FromPalette
+  m_Name: ClippingPlaneFromPalette
   m_Shader: {fileID: 4800000, guid: cee47de41a573bb45a3eedbd9ce84e81, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
