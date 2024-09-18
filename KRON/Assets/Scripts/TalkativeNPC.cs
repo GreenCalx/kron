@@ -20,7 +20,7 @@ public class TalkativeNPC : MonoBehaviour
     private Coroutine animateBubbleCo;
 
     [Header("Talkative NPC Tweak")]
-    public string name;
+    public string npc_name;
     public List<int> dialog_ids;
 
     [Header("Internals")]
