@@ -19,8 +19,13 @@ public class TalkativeNPC : MonoBehaviour
 
     private Coroutine animateBubbleCo;
 
+    [Header("Talkative NPC Tweak")]
+    public string name;
+    public List<int> dialog_ids;
+
     [Header("Internals")]
     private bool playerIsTalking = false;
+    private int currDialogIndex = 0;
 
 
     // Start is called before the first frame update
@@ -49,7 +54,9 @@ public class TalkativeNPC : MonoBehaviour
             {
                 if (!playerIsTalking)
                     StartTalk(); 
-                else // TODO : exhaust dialog first
+                else if (currDialogIndex < dialog_ids.Count - 1)
+                    TalkNext();
+                else
                     StopTalk();
             }
         }
@@ -58,7 +65,19 @@ public class TalkativeNPC : MonoBehaviour
     private void StartTalk()
     {
         playerIsTalking = true;
+        
+        if (dialog_ids.Count>0)
+        {
+            currDialogIndex = 0;
+            Access.PUX().LoadDialog(name, dialog_ids[currDialogIndex]);
+        }
         Access.PUX().ShowDialog(dialogCam);
+    }
+
+    public void TalkNext()
+    {
+        currDialogIndex++;
+        Access.PUX().LoadDialog(name, dialog_ids[currDialogIndex]);
     }
 
     private void StopTalk()

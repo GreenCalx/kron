@@ -439,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogUIHandle: {fileID: 7469619670005011674}
   DialogRTImage: {fileID: 7709779650334421767}
+  dialogText: {fileID: 6883271070591669711}
 --- !u!1 &8832777562489521261
 GameObject:
   m_ObjectHideFlags: 0

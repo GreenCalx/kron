@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 7954030598495374100}
   - component: {fileID: 7954030598495374099}
   m_Layer: 0
-  m_Name: MAKO
+  m_Name: NOSTRO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,6 +416,8 @@ MonoBehaviour:
   animFrameDuration: 0.5
   animateBubble: 1
   playerInTalkTrigger: 0
+  name: Nostro
+  dialog_ids: 0000000001000000
 --- !u!1001 &7954030597023501324
 PrefabInstance:
   m_ObjectHideFlags: 0
