@@ -65,7 +65,8 @@ public class TalkativeNPC : MonoBehaviour
     private void StartTalk()
     {
         playerIsTalking = true;
-        
+        Access.Player().SheatheSword();
+
         if (dialog_ids.Count>0)
         {
             currDialogIndex = 0;
@@ -83,6 +84,7 @@ public class TalkativeNPC : MonoBehaviour
     private void StopTalk()
     {
         playerIsTalking = false;
+        Access.Player().DrawSword();
         Access.PUX().HideDialog();
     }
 

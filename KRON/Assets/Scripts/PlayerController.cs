@@ -6,20 +6,39 @@ using UnityEditor.Animations;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Manual Refs")]
     public Animator AnimController;
     public Camera FPSCamera;
+
+    public GameObject prefab_sword;
+    public Transform h_handWeaponSlot;
+    public Transform h_backWeaponSlot;
+
     [Header("Tweaks")]
     public bool freeze_inputs = false;
     public float speed = 10f;
     public float turnSpeed = 5f;
     public float deadzone = 0.1f;
+    public bool initSwordIsDrawn = false;
 
     [Header("Internals")]
     public Rigidbody self_rb;
     public float hMove, vMove;
     public bool playerDoAction;
     private bool isMoving = false;
-    
+    private bool pSwordIsDrawn = false;
+    public bool swordIsDrawn
+    {
+        get {return pSwordIsDrawn;}
+        set { 
+            pSwordIsDrawn = value;
+            ToggleSword();
+            }
+    }
+
+    private GameObject h_backSword;
+    private GameObject h_handSword;
+    private bool isInAnimation = false;
 
     void Start()
     {
@@ -27,6 +46,32 @@ public class PlayerController : MonoBehaviour
             self_rb = GetComponent<Rigidbody>();
         hMove = 0f;
         vMove = 0f;
+        pSwordIsDrawn = initSwordIsDrawn;
+
+        refreshWeapons();
+    }
+
+    private void refreshWeapons()
+    {
+        h_backSword = Instantiate(prefab_sword);
+        h_backSword.transform.parent = h_backWeaponSlot;
+        h_backSword.transform.localPosition = Vector3.zero;
+        h_backSword.transform.localRotation = Quaternion.identity;
+
+
+        h_handSword = Instantiate(prefab_sword);
+        h_handSword.transform.parent = h_handWeaponSlot;
+        h_handSword.transform.localPosition = Vector3.zero;
+        h_handSword.transform.localRotation = Quaternion.identity;
+
+        h_backSword.SetActive(!pSwordIsDrawn);
+        h_handSword.SetActive(pSwordIsDrawn);
+    }
+
+    public void ToggleSword()
+    {
+        h_backSword.SetActive(!pSwordIsDrawn);
+        h_handSword.SetActive(pSwordIsDrawn);
     }
 
     void Update()
@@ -51,7 +96,6 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessInputs()
     {
-
         if (!!self_rb && !isMoving)
         {
             self_rb.velocity = new Vector3(0f, self_rb.velocity.y, 0f);
@@ -94,29 +138,79 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+        public void DrawSword()
+        {
+            if (isInAnimation)
+                return;
+            StartCoroutine(DrawSwordAnim());
+        }
+
+        public void SheatheSword()
+        {
+            if (isInAnimation)
+                return;
+            StartCoroutine(SheatheSwordAnim());
+        }
+
         // animations
         public void PlayThrownOutOfBalenos(Transform iThrower, float iThrowForce)
         {
             AnimController.SetTrigger("IsThrown");
+            
 
             Vector3 throw_dir = iThrower.position - transform.position;
             self_rb.AddForce(throw_dir.normalized * -1 * iThrowForce, ForceMode.VelocityChange);
-            StartCoroutine(FreezeUntilAnimationEnd("Thrown"));
+            StartCoroutine(DrawSwordAnim());
+            StartCoroutine(FreezeUntilBackToIdle());
         }
 
-        IEnumerator FreezeUntilAnimationEnd(string iAnimationName)
+        IEnumerator DrawSwordAnim()
+        {
+            isInAnimation = true;
+
+            string targetAnimState = "SwordOut";
+            AnimController.SetTrigger("ToggleSword");
+            AnimatorStateInfo currClip = AnimController.GetCurrentAnimatorStateInfo(0);
+            while (!currClip.IsName(targetAnimState))
+            {
+                currClip = AnimController.GetCurrentAnimatorStateInfo(0);
+                yield return null;
+            }
+            swordIsDrawn = true;
+
+            isInAnimation = false;
+        }
+
+        IEnumerator SheatheSwordAnim()
+        {
+            isInAnimation = true;
+
+            string targetAnimState = "SwordOut";
+            AnimController.SetTrigger("ToggleSword");
+            AnimatorStateInfo currClip = AnimController.GetCurrentAnimatorStateInfo(0);
+            while (!currClip.IsName(targetAnimState))
+            {
+                currClip = AnimController.GetCurrentAnimatorStateInfo(0);
+                yield return null;
+            }
+            swordIsDrawn = false;
+
+            isInAnimation = false;
+        }
+
+        IEnumerator FreezeUntilBackToIdle()
         {
             freeze_inputs = true;
             AnimatorStateInfo currClip = AnimController.GetCurrentAnimatorStateInfo(0);
             // wait to be in set animation first
-            while(!currClip.IsName(iAnimationName))
+            while(currClip.IsName("Idle"))
             {
                 currClip = AnimController.GetCurrentAnimatorStateInfo(0);
                 yield return null;
             }
             
             // then wait for the animation to finish
-            while(currClip.IsName(iAnimationName))
+            while(!currClip.IsName("Idle"))
             {
                 currClip = AnimController.GetCurrentAnimatorStateInfo(0);
                 yield return null;
