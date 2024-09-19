@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEditor.Animations;
 
 public class PlayerController : MonoBehaviour
 {
     public Animator AnimController;
     [Header("Tweaks")]
+    public bool freeze_inputs = false;
     public float speed = 10f;
     public float turnSpeed = 5f;
     public float deadzone = 0.1f;
@@ -19,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        self_rb = GetComponent<Rigidbody>();
+        if (self_rb==null)
+            self_rb = GetComponent<Rigidbody>();
         hMove = 0f;
         vMove = 0f;
     }
@@ -31,7 +34,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        ProcessInputs();
+        if (!freeze_inputs)
+            ProcessInputs();
     }
 
     private void FetchInputs()
@@ -86,10 +90,41 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
             AnimController.SetBool("IsRunning", false);
         }
-
-       
-
-
-
     }
+
+        // animations
+        public void PlayThrownOutOfBalenos(Transform iThrower, float iThrowForce)
+        {
+            AnimController.SetTrigger("IsThrown");
+
+            Vector3 throw_dir = iThrower.position - transform.position;
+            self_rb.AddForce(throw_dir.normalized * -1 * iThrowForce, ForceMode.VelocityChange);
+            StartCoroutine(FreezeUntilAnimationEnd("Thrown"));
+        }
+
+        IEnumerator FreezeUntilAnimationEnd(string iAnimationName)
+        {
+            freeze_inputs = true;
+            AnimatorStateInfo currClip = AnimController.GetCurrentAnimatorStateInfo(0);
+            // wait to be in set animation first
+            while(!currClip.IsName(iAnimationName))
+            {
+                currClip = AnimController.GetCurrentAnimatorStateInfo(0);
+                yield return null;
+            }
+            
+            // then wait for the animation to finish
+            while(currClip.IsName(iAnimationName))
+            {
+                currClip = AnimController.GetCurrentAnimatorStateInfo(0);
+                yield return null;
+            }
+
+            yield return new WaitForFixedUpdate();
+
+            self_rb.angularVelocity = Vector3.zero;
+            self_rb.velocity = Vector3.zero;
+
+            freeze_inputs = false;
+        }
 }
