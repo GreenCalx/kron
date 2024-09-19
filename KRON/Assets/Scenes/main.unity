@@ -3479,12 +3479,12 @@ Transform:
   - {fileID: 83409374}
   - {fileID: 799577418}
   - {fileID: 1134532869}
-  - {fileID: 1819349253}
   - {fileID: 981603640}
   - {fileID: 2061264161}
   - {fileID: 2075405163}
   - {fileID: 731033320}
   - {fileID: 110691538}
+  - {fileID: 1819349253}
   - {fileID: 1340128127}
   - {fileID: 1242035266}
   - {fileID: 696531576}
@@ -5538,6 +5538,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4680559926289145643, guid: b82b8ad60ffcf804a911c7021f180d4e, type: 3}
+      propertyPath: throw_force
+      value: 7.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4680559926289145643, guid: b82b8ad60ffcf804a911c7021f180d4e, type: 3}
       propertyPath: PlayerSpawnPosition
       value: 
