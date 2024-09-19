@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     private GameObject h_handSword;
     private bool isInAnimation = false;
 
+    public string previousScene = string.Empty;
+
     void Start()
     {
         if (self_rb==null)
