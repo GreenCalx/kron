@@ -149,8 +149,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Baleno|Close Da Mouth
-      takeName: Baleno|Close Da Mouth
+      name: Baleno|MouthClosed
+      takeName: Baleno|MouthClosed
       internalID: 653668932705504785
       firstFrame: 0
       lastFrame: 20
