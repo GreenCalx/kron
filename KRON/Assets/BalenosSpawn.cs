@@ -11,6 +11,15 @@ public class BalenosSpawn : MonoBehaviour
 
     public Transform PlayerSpawnPosition;
     public Animator self_animator;
+    public bool IntroAlreadyDone = false;
+    void Start()
+    {
+        IntroAlreadyDone = PlayerPrefs.GetInt(Constants.PPKey_Intro)==1;
+        if (IntroAlreadyDone)
+        {
+            
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -24,6 +33,9 @@ public class BalenosSpawn : MonoBehaviour
 
     IEnumerator SpawnPlayer()
     {
+        if (IntroAlreadyDone)
+            yield break;
+
         GameObject p = Instantiate(prefab_player);
         p.transform.parent = null;
         p.transform.position = PlayerSpawnPosition.position;
@@ -42,7 +54,8 @@ public class BalenosSpawn : MonoBehaviour
         {
             pc.PlayThrownOutOfBalenos(transform, throw_force);
         }
-            
+        
+        PlayerPrefs.SetInt(Constants.PPKey_Intro, 1);
         Destroy(this);
     }
 }
