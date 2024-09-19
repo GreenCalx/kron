@@ -51,7 +51,6 @@ public class TravelToLevel : MonoBehaviour
         if (Utils.ColliderIsPlayer(iCollider))
         {
             WaitToTeleportCo = StartCoroutine(TeleportPlayerCo());
-            TeleportToTargetCo = StartCoroutine(AsyncSceneLoadCo());
         }
     }
 
@@ -66,7 +65,7 @@ public class TravelToLevel : MonoBehaviour
         if (teleportOngoing)
         {
             StopCoroutine(WaitToTeleportCo);
-            StopCoroutine(TeleportToTargetCo);
+
             TeleportToTargetCo = null;
             WaitToTeleportCo = null;
             teleportOngoing = false;
@@ -87,34 +86,6 @@ public class TravelToLevel : MonoBehaviour
         }
         
         rdyToTeleport = true;
+        Access.SceneLoader().LoadLevel(targetLevel);
     }
-
-    IEnumerator AsyncSceneLoadCo()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(targetLevel, LoadSceneMode.Additive);
-        asyncLoad.allowSceneActivation = false;
-        while (!rdyToTeleport)
-        {
-            yield return null;
-        }
-        
-        while (asyncLoad.progress < 0.9f)
-        {
-            yield return null;
-        }
-
-        Access.Player().previousScene = currentScene.name;
-        SceneManager.MoveGameObjectToScene(Access.Player().gameObject, SceneManager.GetSceneByName(targetLevel));
-        asyncLoad.allowSceneActivation = true;
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-        // move objects to other scene
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(targetLevel));
-        //
-        SceneManager.UnloadSceneAsync(currentScene);
-    }
-
 }
