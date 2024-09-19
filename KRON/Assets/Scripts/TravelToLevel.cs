@@ -9,15 +9,12 @@ public class TravelToLevel : MonoBehaviour
     public string targetLevel = string.Empty;
     public float TimeToTravel = 1f;
     private Coroutine WaitToTeleportCo;
-    private Coroutine TeleportToTargetCo;
     public bool teleportOngoing;
     private float elapsedTime = 0f;
-    private bool rdyToTeleport = false;
     public bool NeedExitAfterTeleport = false;
     void Start()
     {
         WaitToTeleportCo = null;
-        TeleportToTargetCo = null;
         teleportOngoing = false;
         StartCoroutine(LookForPlayerRepositioning());
     }
@@ -66,7 +63,6 @@ public class TravelToLevel : MonoBehaviour
         {
             StopCoroutine(WaitToTeleportCo);
 
-            TeleportToTargetCo = null;
             WaitToTeleportCo = null;
             teleportOngoing = false;
         }
@@ -75,7 +71,6 @@ public class TravelToLevel : MonoBehaviour
     IEnumerator TeleportPlayerCo()
     {
         teleportOngoing = true;
-        rdyToTeleport = false;
         elapsedTime = 0f;
         while(teleportOngoing)
         {
@@ -84,8 +79,7 @@ public class TravelToLevel : MonoBehaviour
                 break;
             yield return new WaitForSeconds(0.1f);
         }
-        
-        rdyToTeleport = true;
+    
         Access.SceneLoader().LoadLevel(targetLevel);
     }
 }

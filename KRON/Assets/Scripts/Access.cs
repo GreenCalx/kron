@@ -71,6 +71,8 @@ public class Access
             return cache.getObject<T>(Constants.GO_PUX, true);
         if (typeof(T)==typeof(SceneLoader))
             return cache.getObject<T>(Constants.GO_MGR, true);
+        if (typeof(T)==typeof(CameraManager))
+            return cache.getObject<T>(Constants.GO_MGR, true);
         return default(T);
     }
 

@@ -61,14 +61,19 @@ public class CameraManager : MonoBehaviour
     {
         if (activeCamera==h_farCamera)
         {
-            h_FPSCamera.gameObject.SetActive(true);
-            h_farCamera.gameObject.SetActive(false);
+            if (h_FPSCamera!=null)
+                h_FPSCamera.gameObject.SetActive(true);
+            if (h_farCamera!=null)
+                h_farCamera.gameObject.SetActive(false);
             activeCamera = h_FPSCamera;
             return;
         }
 
-        h_FPSCamera.gameObject.SetActive(false);
-        h_farCamera.gameObject.SetActive(true);
+        if (h_FPSCamera!=null)
+            h_FPSCamera.gameObject.SetActive(false);
+        if (h_farCamera!=null)
+            h_farCamera.gameObject.SetActive(true);
+            
         activeCamera = h_farCamera;
     }
 
