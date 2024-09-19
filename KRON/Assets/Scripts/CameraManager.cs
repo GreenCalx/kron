@@ -42,6 +42,8 @@ public class CameraManager : MonoBehaviour
 
         if (Input.GetKeyUp("space"))
         {
+            if (Access.Player().freeze_inputs)
+                return;
             changeCamera();
         }
     }
