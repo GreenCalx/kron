@@ -69,7 +69,7 @@ public class TalkativeNPC : MonoBehaviour
         if (dialog_ids.Count>0)
         {
             currDialogIndex = 0;
-            Access.PUX().LoadDialog(name, dialog_ids[currDialogIndex]);
+            Access.PUX().LoadDialog(npc_name, dialog_ids[currDialogIndex]);
         }
         Access.PUX().ShowDialog(dialogCam);
     }
@@ -77,7 +77,7 @@ public class TalkativeNPC : MonoBehaviour
     public void TalkNext()
     {
         currDialogIndex++;
-        Access.PUX().LoadDialog(name, dialog_ids[currDialogIndex]);
+        Access.PUX().LoadDialog(npc_name, dialog_ids[currDialogIndex]);
     }
 
     private void StopTalk()

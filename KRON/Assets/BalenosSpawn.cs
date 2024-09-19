@@ -27,6 +27,7 @@ public class BalenosSpawn : MonoBehaviour
         GameObject p = Instantiate(prefab_player);
         p.transform.parent = null;
         p.transform.position = PlayerSpawnPosition.position;
+        p.gameObject.name = Constants.GO_PLAYER;
 
         yield return new WaitForFixedUpdate();
         
@@ -36,7 +37,6 @@ public class BalenosSpawn : MonoBehaviour
         // if we want to be rotated towards the exit of the pier
         //Quaternion rot = Quaternion.LookRotation(lookPosXZ);
         
-
         PlayerController pc = p.GetComponentInChildren<PlayerController>();
         if (!!pc)
         {

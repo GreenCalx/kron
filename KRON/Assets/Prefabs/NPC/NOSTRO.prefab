@@ -416,7 +416,7 @@ MonoBehaviour:
   animFrameDuration: 0.5
   animateBubble: 1
   playerInTalkTrigger: 0
-  name: Nostro
+  npc_name: Nostro
   dialog_ids: 0000000001000000
 --- !u!1001 &7954030597023501324
 PrefabInstance:
@@ -469,10 +469,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 531457576654085809, guid: 4acad246066489044a820dfb6bc240ba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb46913aaa0360c4ea582d558d11e232, type: 2}
     - target: {fileID: 919132149155446097, guid: 4acad246066489044a820dfb6bc240ba, type: 3}
       propertyPath: m_Name
       value: visage
       objectReference: {fileID: 0}
+    - target: {fileID: 8293432921738514606, guid: 4acad246066489044a820dfb6bc240ba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb46913aaa0360c4ea582d558d11e232, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acad246066489044a820dfb6bc240ba, type: 3}
 --- !u!4 &7631593466661825511 stripped

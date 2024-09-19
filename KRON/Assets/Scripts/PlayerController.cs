@@ -7,6 +7,7 @@ using UnityEditor.Animations;
 public class PlayerController : MonoBehaviour
 {
     public Animator AnimController;
+    public Camera FPSCamera;
     [Header("Tweaks")]
     public bool freeze_inputs = false;
     public float speed = 10f;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float hMove, vMove;
     public bool playerDoAction;
     private bool isMoving = false;
+    
 
     void Start()
     {

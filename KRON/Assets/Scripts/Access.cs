@@ -5,7 +5,7 @@ public class Access
     private class AccessCache
     {
         private GameObject GO_PLAYER;
-        private GameObject GO_SOUNDMGR;
+        private GameObject GO_MGR;
         private GameObject GO_PUX;
 
         private static AccessCache inst;
@@ -31,9 +31,9 @@ public class Access
             {
                 handler = checkCacheObject(iHolder, ref GO_PLAYER);
             }
-            else if (iHolder == Constants.GO_SOUNDMGR)
+            else if (iHolder == Constants.GO_MGR)
             {
-                handler = checkCacheObject(iHolder, ref GO_SOUNDMGR);
+                handler = checkCacheObject(iHolder, ref GO_MGR);
             }
             else if (iHolder == Constants.GO_PUX)
             {
@@ -51,7 +51,7 @@ public class Access
         public void invalidate()
         {
             GO_PLAYER = null;
-            GO_SOUNDMGR = null;
+            GO_MGR = null;
             GO_PUX = null;
         }
     }//! cache
@@ -66,7 +66,7 @@ public class Access
         if (typeof(T)==typeof(PlayerController)) 
             return cache.getObject<T>(Constants.GO_PLAYER, true);
         if (typeof(T)==typeof(SoundManager)) 
-            return cache.getObject<T>(Constants.GO_SOUNDMGR, true);
+            return cache.getObject<T>(Constants.GO_MGR, true);
         if (typeof(T)==typeof(PlayerUI)) 
             return cache.getObject<T>(Constants.GO_PUX, true);
         return default(T);
@@ -75,4 +75,6 @@ public class Access
     public static PlayerController Player() { return Get<PlayerController>(); }
     public static PlayerUI PUX() { return Get<PlayerUI>(); }
     public static SoundManager SoundManager() { return Get<SoundManager>(); }
+
+    public static CameraManager CameraManager() { return Get<CameraManager>(); }
 }
