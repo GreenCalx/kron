@@ -18,6 +18,8 @@ public class BalenosSpawn : MonoBehaviour
         if (IntroAlreadyDone)
         {
             
+        } else {
+            Access.CameraManager().h_farCamera.focus = transform;
         }
     }
 
@@ -56,6 +58,8 @@ public class BalenosSpawn : MonoBehaviour
         }
         
         PlayerPrefs.SetInt(Constants.PPKey_Intro, 1);
+
+        Access.CameraManager().h_farCamera.focus = p.transform;
         Destroy(this);
     }
 }

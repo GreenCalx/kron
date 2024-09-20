@@ -63,7 +63,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 119
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 4204dd1c5163bf649b242b925177f8bd, type: 2}
   m_TargetDisplay: 0
@@ -418,6 +418,8 @@ MonoBehaviour:
   playerInTalkTrigger: 0
   npc_name: Nostro
   dialog_ids: 0000000001000000
+  playerIsTalking: 0
+  currDialogIndex: 0
 --- !u!1001 &7954030597023501324
 PrefabInstance:
   m_ObjectHideFlags: 0

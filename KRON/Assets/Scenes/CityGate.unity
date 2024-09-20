@@ -591,6 +591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camType: 1
+  selfCam: {fileID: 963194227}
+  focus: {fileID: 0}
 --- !u!1 &1201444362
 GameObject:
   m_ObjectHideFlags: 0

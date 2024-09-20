@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Manual Refs")]
     public Animator AnimController;
-    public Camera FPSCamera;
+    public GameCamera FPSCamera;
 
     public GameObject prefab_sword;
     public Transform h_handWeaponSlot;

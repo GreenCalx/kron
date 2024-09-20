@@ -7,11 +7,12 @@ public class CameraManager : MonoBehaviour
 {
     public readonly string showBuildingLayer = "ShowBuildingTop";
     [Header("Manual Refs")]
-    public Camera h_farCamera;
+    public GameCamera h_farCamera;
+    public float camSmoothFactor = 0.02f;
     [Header("Auto Refs")]
-    public Camera h_FPSCamera;
+    public GameCamera h_FPSCamera;
     [Header("Internals")]
-    public Camera activeCamera;
+    public GameCamera activeCamera;
 
     private int initCullingMaskFarCam;
     private bool initDone;
@@ -24,14 +25,18 @@ public class CameraManager : MonoBehaviour
     IEnumerator Init()
     {
         initDone = false; 
-        initCullingMaskFarCam = h_farCamera.cullingMask;
-        activeCamera = null;
-        while(Access.Player()==null)
+        while (h_farCamera==null)
         {
             yield return null;
         }
-        RefreshCams();
-        changeCamera();
+        while (h_farCamera.selfCam==null)
+        {
+            yield return null;
+        }
+
+        initCullingMaskFarCam = h_farCamera.selfCam.cullingMask;
+        activeCamera = h_farCamera;
+
         initDone = true;
     }
 
@@ -46,15 +51,51 @@ public class CameraManager : MonoBehaviour
                 return;
             changeCamera();
         }
+
+        if (activeCamera==h_farCamera)
+        {
+            UpdateFarCam();
+        }
+    }
+
+    void UpdateFarCam()
+    {
+        Vector3 playerPosInScreen = activeCamera.selfCam.WorldToScreenPoint(activeCamera.focus.position);
+
+        // Check X to width
+        Vector3 tVec = Vector3.zero;
+
+        if (playerPosInScreen.x < Screen.width/3)
+        {
+            tVec += new Vector3(-1f * camSmoothFactor, 0f, 0f);
+            activeCamera.transform.Translate(tVec);
+        }
+        else if (playerPosInScreen.x > (Screen.width * 2/3))
+        {
+            tVec += new Vector3(camSmoothFactor, 0f, 0f);
+            activeCamera.transform.Translate(tVec);
+        }
+
+        // Check Y to height
+        if (playerPosInScreen.y < Screen.height/3)
+        {
+            tVec += new Vector3(0f, -1f * camSmoothFactor, 0f);
+            activeCamera.transform.Translate(tVec);
+        }
+        else if (playerPosInScreen.y > (Screen.height * 2/3))
+        {
+            tVec += new Vector3(0f, camSmoothFactor, 0f);
+            activeCamera.transform.Translate(tVec);
+        }
     }
 
     public void ShowBuildingTop(bool iState)
     {
         int layerID = LayerMask.NameToLayer(showBuildingLayer);
         if (!iState)
-            h_farCamera.cullingMask &= ~(1 << layerID);
+            h_farCamera.selfCam.cullingMask &= ~(1 << layerID);
         else
-            h_farCamera.cullingMask = initCullingMaskFarCam;
+            h_farCamera.selfCam.cullingMask = initCullingMaskFarCam;
     }
 
     void changeCamera()
