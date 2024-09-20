@@ -103,6 +103,9 @@ public class PlayerController : MonoBehaviour
             self_rb.velocity = new Vector3(0f, self_rb.velocity.y, 0f);
             self_rb.angularVelocity = Vector3.zero;
             AnimController.SetBool("IsRunning", false);
+            AnimController.SetBool("IsWalkingBackward", false);
+            AnimController.SetBool("IsTurningRight", false);
+            AnimController.SetBool("IsTurningLeft", false);
             return;
         }
 
@@ -113,6 +116,8 @@ public class PlayerController : MonoBehaviour
             transform.Rotate( new Vector3(0f,-1f*y_turn, 0f));
             isMoving = true;
             AnimController.SetBool("IsRunning", false);
+            AnimController.SetBool("IsTurningLeft", false);
+            AnimController.SetBool("IsTurningRight", true);
         } 
         else if (hMove > 0f) 
         {
@@ -120,6 +125,11 @@ public class PlayerController : MonoBehaviour
             transform.Rotate( new Vector3(0f,y_turn, 0f));
             isMoving = true;
             AnimController.SetBool("IsRunning", false);
+            AnimController.SetBool("IsTurningRight", false);
+            AnimController.SetBool("IsTurningLeft", true);
+        } else {
+            AnimController.SetBool("IsTurningRight", false);
+            AnimController.SetBool("IsTurningLeft", false);
         }
         
         // forward/backward
@@ -129,7 +139,8 @@ public class PlayerController : MonoBehaviour
             Vector3 translation = new Vector3(0f, 0f, speed * Time.fixedDeltaTime);
             transform.Translate(translation);
             isMoving = true;
-            AnimController.SetBool("IsRunning", isMoving);
+            AnimController.SetBool("IsRunning", true);
+            AnimController.SetBool("IsWalkingBackward", false);
         } else if ( vMove < 0f )
         {
             // move backward
@@ -137,6 +148,10 @@ public class PlayerController : MonoBehaviour
             transform.Translate(translation);
             isMoving = true;
             AnimController.SetBool("IsRunning", false);
+            AnimController.SetBool("IsWalkingBackward", true);
+        } else {
+            AnimController.SetBool("IsRunning", false);
+            AnimController.SetBool("IsWalkingBackward", false);
         }
     }
 
