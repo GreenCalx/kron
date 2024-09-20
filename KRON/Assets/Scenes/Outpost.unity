@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 30788469}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,6 +714,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ee2d8d20d7a2c647b3f1edae780c51a, type: 3}
+--- !u!1 &221723935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7954030598495374101, guid: 0ee2d8d20d7a2c647b3f1edae780c51a, type: 3}
+  m_PrefabInstance: {fileID: 221723934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &221723936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221723935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf88a67b7a5f0948a7f5025f316cc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogTarget: {fileID: 221723937}
+  TriggerOnlyOnce: 1
+  DialogIDToTriggerCB: 1
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 235531364}
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: set_OpenDoor
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &221723937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7954030598495374099, guid: 0ee2d8d20d7a2c647b3f1edae780c51a, type: 3}
+  m_PrefabInstance: {fileID: 221723934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221723935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50776c674ca0ac04287e18f3f48da8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &235531363 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8508887029193635871, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
@@ -5426,7 +5472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1893136249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6308,6 +6354,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4941823515258936149, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb46913aaa0360c4ea582d558d11e232, type: 2}
     - target: {fileID: 6115833942461489210, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6324,12 +6374,25 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.000000014901158
       objectReference: {fileID: 0}
+    - target: {fileID: 6887162981105400448, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8508887029193635871, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
       propertyPath: m_Name
       value: HerseTower
       objectReference: {fileID: 0}
+    - target: {fileID: 8508887029193635871, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
+--- !u!23 &1258309353592171889 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4941823515258936149, guid: fd1206bd1d02e3f40b87818484e30b39, type: 3}
+  m_PrefabInstance: {fileID: 1258309353592171888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1407464030195229286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7054,6 +7117,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 84352216}
     m_Modifications:
+    - target: {fileID: 6277137761223927826, guid: a220e7ff293e39541b3df492e391656a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6577198416572131387, guid: a220e7ff293e39541b3df492e391656a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.153
@@ -7106,6 +7173,18 @@ PrefabInstance:
       propertyPath: cameraManager
       value: 
       objectReference: {fileID: 169588348}
+    - target: {fileID: 7673305865563406773, guid: a220e7ff293e39541b3df492e391656a, type: 3}
+      propertyPath: ToCullOnEnter.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673305865563406773, guid: a220e7ff293e39541b3df492e391656a, type: 3}
+      propertyPath: ToCullOnEnter.Array.data[2]
+      value: 
+      objectReference: {fileID: 7673305866151193957}
+    - target: {fileID: 7673305865563406773, guid: a220e7ff293e39541b3df492e391656a, type: 3}
+      propertyPath: ToCullOnEnter.Array.data[3]
+      value: 
+      objectReference: {fileID: 1258309353592171889}
     - target: {fileID: 7673305865563406774, guid: a220e7ff293e39541b3df492e391656a, type: 3}
       propertyPath: m_Name
       value: Building_Tower
@@ -7119,6 +7198,11 @@ PrefabInstance:
 --- !u!4 &7673305866151193956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7673305865563406772, guid: a220e7ff293e39541b3df492e391656a, type: 3}
+  m_PrefabInstance: {fileID: 7673305866151193955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7673305866151193957 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1695124417937540635, guid: a220e7ff293e39541b3df492e391656a, type: 3}
   m_PrefabInstance: {fileID: 7673305866151193955}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7732702739068550197

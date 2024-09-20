@@ -24,8 +24,8 @@ public class TalkativeNPC : MonoBehaviour
     public List<int> dialog_ids;
 
     [Header("Internals")]
-    private bool playerIsTalking = false;
-    private int currDialogIndex = 0;
+    public bool playerIsTalking = false;
+    public int currDialogIndex = 0;
 
 
     // Start is called before the first frame update
