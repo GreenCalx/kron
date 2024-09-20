@@ -40,7 +40,7 @@ public class CameraManager : MonoBehaviour
         if (!initDone)
             return;
 
-        if (Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("tab"))
         {
             if (Access.Player().freeze_inputs)
                 return;
@@ -73,7 +73,7 @@ public class CameraManager : MonoBehaviour
             h_FPSCamera.gameObject.SetActive(false);
         if (h_farCamera!=null)
             h_farCamera.gameObject.SetActive(true);
-            
+
         activeCamera = h_farCamera;
     }
 
