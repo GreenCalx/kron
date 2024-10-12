@@ -67,24 +67,24 @@ public class CameraManager : MonoBehaviour
 
         if (playerPosInScreen.x < Screen.width/3)
         {
-            tVec += new Vector3(-1f * camSmoothFactor, 0f, 0f);
+            tVec = new Vector3(-1f * camSmoothFactor, 0f, 0f);
             activeCamera.transform.Translate(tVec);
         }
         else if (playerPosInScreen.x > (Screen.width * 2/3))
         {
-            tVec += new Vector3(camSmoothFactor, 0f, 0f);
+            tVec = new Vector3(camSmoothFactor, 0f, 0f);
             activeCamera.transform.Translate(tVec);
         }
 
         // Check Y to height
         if (playerPosInScreen.y < Screen.height/3)
         {
-            tVec += new Vector3(0f, -1f * camSmoothFactor, 0f);
+            tVec = new Vector3(0f, -1f * camSmoothFactor, 0f);
             activeCamera.transform.Translate(tVec);
         }
         else if (playerPosInScreen.y > (Screen.height * 2/3))
         {
-            tVec += new Vector3(0f, camSmoothFactor, 0f);
+            tVec = new Vector3(0f, camSmoothFactor, 0f);
             activeCamera.transform.Translate(tVec);
         }
     }
@@ -127,5 +127,21 @@ public class CameraManager : MonoBehaviour
                 return;
             h_FPSCamera = Access.Player().FPSCamera;
         }
+    }
+
+    public void OnSceneLoaded()
+    {
+        RefreshCams();
+        if (h_farCamera.focus==null)
+            h_farCamera.focus = Access.Player().transform;
+        activeCamera = h_farCamera;
+
+    }
+
+    public void CenterActiveCameraOn(Transform iTransform)
+    {
+        Vector3 tPosInScreen = activeCamera.selfCam.WorldToScreenPoint(iTransform.position);
+        Vector3 wantedPos = activeCamera.selfCam.ScreenToWorldPoint(tPosInScreen);
+        activeCamera.transform.position = wantedPos;
     }
 }

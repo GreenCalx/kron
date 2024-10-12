@@ -33,6 +33,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(iTargetLevel));
         //
         SceneManager.UnloadSceneAsync(currentScene);
+        // 
+        Access.CameraManager().OnSceneLoaded();
     }
 
 }

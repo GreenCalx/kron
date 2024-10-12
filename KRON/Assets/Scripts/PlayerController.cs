@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool initSwordIsDrawn = false;
 
     [Header("Internals")]
+    public bool centerCam = false;
     public Rigidbody self_rb;
     public float hMove, vMove;
     public bool playerDoAction;
@@ -92,12 +93,18 @@ public class PlayerController : MonoBehaviour
         hMove = Input.GetAxis("Horizontal");
         vMove = Input.GetAxis("Vertical");
         playerDoAction = Input.GetKeyUp(KeyCode.T);
-
+        centerCam = Input.GetKeyUp(KeyCode.Space);
         isMoving = (hMove!=0f)||(vMove!=0f);
     }
 
     private void ProcessInputs()
     {
+        if (centerCam)
+        {
+            Access.CameraManager().CenterActiveCameraOn(transform);
+            centerCam = false;
+        }
+        
         if (!!self_rb && !isMoving)
         {
             self_rb.velocity = new Vector3(0f, self_rb.velocity.y, 0f);

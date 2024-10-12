@@ -12,14 +12,15 @@ public class BalenosSpawn : MonoBehaviour
     public Transform PlayerSpawnPosition;
     public Animator self_animator;
     public bool IntroAlreadyDone = false;
+    public GameCamera introCam;
     void Start()
     {
         IntroAlreadyDone = PlayerPrefs.GetInt(Constants.PPKey_Intro)==1;
         if (IntroAlreadyDone)
         {
-            
+            Access.CameraManager().h_farCamera.focus = Access.Player().transform;
         } else {
-            Access.CameraManager().h_farCamera.focus = transform;
+            introCam.focus = transform;
         }
     }
 

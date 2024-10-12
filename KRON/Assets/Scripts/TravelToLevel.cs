@@ -33,6 +33,10 @@ public class TravelToLevel : MonoBehaviour
             pc.transform.position = h_SpawnPoint.position;
             pc.transform.rotation = h_SpawnPoint.rotation;
             NeedExitAfterTeleport = true;
+
+            yield return null;
+
+            Access.CameraManager().CenterActiveCameraOn(h_SpawnPoint);
         }
 
     }
