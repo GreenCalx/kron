@@ -13,6 +13,8 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator AsyncSceneLoadCo(string iTargetLevel)
     {
+        Access.CameraManager().CullAll(true);
+
         Scene currentScene = SceneManager.GetActiveScene();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(iTargetLevel, LoadSceneMode.Additive);
         asyncLoad.allowSceneActivation = false;
@@ -35,6 +37,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.UnloadSceneAsync(currentScene);
         // 
         Access.CameraManager().OnSceneLoaded();
+
+        Access.CameraManager().CullAll(false);
     }
 
 }

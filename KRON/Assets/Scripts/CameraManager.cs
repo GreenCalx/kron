@@ -17,6 +17,8 @@ public class CameraManager : MonoBehaviour
     private int initCullingMaskFarCam;
     private bool initDone;
 
+    private int lastCullingMaskForFarCam;
+
     void Start()
     {
         StartCoroutine(Init());
@@ -35,6 +37,7 @@ public class CameraManager : MonoBehaviour
         }
 
         initCullingMaskFarCam = h_farCamera.selfCam.cullingMask;
+        lastCullingMaskForFarCam = initCullingMaskFarCam;
         activeCamera = h_farCamera;
 
         initDone = true;
@@ -57,9 +60,24 @@ public class CameraManager : MonoBehaviour
             UpdateFarCam();
         }
     }
+    public void CullAll(bool iState)
+    {
+        if (iState)
+        {
+            lastCullingMaskForFarCam = activeCamera.selfCam.cullingMask;
+            activeCamera.selfCam.cullingMask = 0;
+        } else {
+            activeCamera.selfCam.cullingMask = lastCullingMaskForFarCam;
+        }
+    }
 
     void UpdateFarCam()
     {
+        if (h_farCamera==null)
+            return;
+        if (h_farCamera.focus==null)
+            return;
+
         Vector3 playerPosInScreen = activeCamera.selfCam.WorldToScreenPoint(activeCamera.focus.position);
 
         // Check X to width
@@ -135,7 +153,7 @@ public class CameraManager : MonoBehaviour
         if (h_farCamera.focus==null)
             h_farCamera.focus = Access.Player().transform;
         activeCamera = h_farCamera;
-
+        lastCullingMaskForFarCam = h_farCamera.selfCam.cullingMask;
     }
 
     public void CenterActiveCameraOn(Transform iTransform)
