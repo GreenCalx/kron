@@ -14,6 +14,10 @@ public class Building : MonoBehaviour
     {
         isShown = true;
         playerIsIn = false;
+        if (cameraManager==null)
+        {
+            cameraManager = Access.CameraManager();
+        }
     }
 
 

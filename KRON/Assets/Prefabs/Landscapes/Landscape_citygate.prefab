@@ -87,6 +87,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: citygate_level
       objectReference: {fileID: 0}
+    - target: {fileID: 1582950582301402867, guid: bd186ef6b995dbe429a03dc80a069b5e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ce45662964f1ea41927c662037a7788, type: 2}
+    - target: {fileID: 1582950582301402867, guid: bd186ef6b995dbe429a03dc80a069b5e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb46913aaa0360c4ea582d558d11e232, type: 2}
     m_RemovedComponents:
     - {fileID: 9204687363994147562, guid: bd186ef6b995dbe429a03dc80a069b5e, type: 3}
     - {fileID: 8729326377888927738, guid: bd186ef6b995dbe429a03dc80a069b5e, type: 3}
