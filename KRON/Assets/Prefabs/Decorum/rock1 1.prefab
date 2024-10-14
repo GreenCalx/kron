@@ -137,6 +137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 719700d463d6508489adce7ec45b6fbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719700d463d6508489adce7ec45b6fbd, type: 3}
 --- !u!4 &3943404960959581431 stripped

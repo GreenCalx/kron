@@ -353,9 +353,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7903005001077901035, guid: b8f454c5db6f5904e911842eedc03c85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064424547014209977, guid: b8f454c5db6f5904e911842eedc03c85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -2147642314998828177, guid: b8f454c5db6f5904e911842eedc03c85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b8f454c5db6f5904e911842eedc03c85, type: 3}
       propertyPath: m_Name
       value: CampFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b8f454c5db6f5904e911842eedc03c85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4993587321512588211, guid: b8f454c5db6f5904e911842eedc03c85, type: 3}
       propertyPath: m_DirtyAABB

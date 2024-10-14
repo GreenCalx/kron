@@ -14661,6 +14661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candles1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b1910c537780bb48a767a27f8cb10c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1910c537780bb48a767a27f8cb10c1, type: 3}
 --- !u!4 &1678321189911772088 stripped
@@ -14743,6 +14747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candles1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b1910c537780bb48a767a27f8cb10c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1910c537780bb48a767a27f8cb10c1, type: 3}
 --- !u!4 &1792840439717731764 stripped
@@ -14808,6 +14816,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5ab58b2f2c25cd1489028a4095ac82ed, type: 3}
       propertyPath: m_Name
       value: Candles2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ab58b2f2c25cd1489028a4095ac82ed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab58b2f2c25cd1489028a4095ac82ed, type: 3}

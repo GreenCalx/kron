@@ -83,10 +83,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8506252224527564766, guid: c0e7cc6f683e18e418346e0b3d789ab5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -7494899825616963137, guid: c0e7cc6f683e18e418346e0b3d789ab5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -7057280847932882802, guid: c0e7cc6f683e18e418346e0b3d789ab5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bb46913aaa0360c4ea582d558d11e232, type: 2}
+    - target: {fileID: -5921910781204338057, guid: c0e7cc6f683e18e418346e0b3d789ab5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 813589909559312937, guid: c0e7cc6f683e18e418346e0b3d789ab5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c0e7cc6f683e18e418346e0b3d789ab5, type: 3}
       propertyPath: m_Name
       value: ponton

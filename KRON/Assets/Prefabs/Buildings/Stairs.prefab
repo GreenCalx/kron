@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1256978878842652253
 Transform:
@@ -83,9 +83,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6588460104631211053, guid: 10ff4e147d9fb8c42a9425ef2dfd82a2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3194876254758957652, guid: 10ff4e147d9fb8c42a9425ef2dfd82a2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 10ff4e147d9fb8c42a9425ef2dfd82a2, type: 3}
       propertyPath: m_Name
       value: huntercabinstairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10ff4e147d9fb8c42a9425ef2dfd82a2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3058996820339872450, guid: 10ff4e147d9fb8c42a9425ef2dfd82a2, type: 3}

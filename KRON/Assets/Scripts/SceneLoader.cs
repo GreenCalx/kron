@@ -35,6 +35,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(iTargetLevel));
         //
         SceneManager.UnloadSceneAsync(currentScene);
+        //
+        LightProbes.TetrahedralizeAsync();
         // 
         Access.CameraManager().OnSceneLoaded();
 

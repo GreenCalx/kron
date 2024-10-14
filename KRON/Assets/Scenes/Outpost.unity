@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.09411765, g: 0.03529412, b: 0.17254902, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.001
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 52b41391f563e244a88caf2c9cbbcc4d, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2240d12afab1c894da2e1cd0ee4b6327, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 19f2adf5a8c4d254e816514e85f87af1, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -4265,6 +4265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenStool
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 99aefc1ec3191ec42baf795b1f99f9a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aefc1ec3191ec42baf795b1f99f9a4, type: 3}
 --- !u!4 &1480115380 stripped
@@ -5549,7 +5553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3641147703659943053, guid: d182ca9b776149b4d8f7efc50023837c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 3641147703659943053, guid: d182ca9b776149b4d8f7efc50023837c, type: 3}
       propertyPath: m_LocalPosition.z
