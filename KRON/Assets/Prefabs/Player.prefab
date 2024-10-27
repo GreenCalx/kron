@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 7199302000768109501}
   - component: {fileID: 7199302000768109500}
   - component: {fileID: 7199302000768109489}
+  - component: {fileID: 1570097175673870427}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -265,7 +266,7 @@ BoxCollider:
   m_GameObject: {fileID: 7199302000768109499}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
@@ -307,11 +308,26 @@ MonoBehaviour:
   turnSpeed: 80
   deadzone: 0.1
   initSwordIsDrawn: 0
+  centerCam: 0
   self_rb: {fileID: 7199302000768109500}
   hMove: 0
   vMove: 0
   playerDoAction: 0
   previousScene: 
+--- !u!136 &1570097175673870427
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199302000768109499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21
+  m_Height: 1.78
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.87, z: 0}
 --- !u!1001 &2763138374625779083
 PrefabInstance:
   m_ObjectHideFlags: 0
