@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         
         if (!!self_rb && !isMoving)
         {
-            self_rb.velocity = new Vector3(0f, self_rb.velocity.y, 0f);
+            self_rb.linearVelocity = new Vector3(0f, self_rb.linearVelocity.y, 0f);
             self_rb.angularVelocity = Vector3.zero;
             AnimController.SetBool("IsRunning", false);
             AnimController.SetBool("IsWalkingBackward", false);
@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForFixedUpdate();
 
             self_rb.angularVelocity = Vector3.zero;
-            self_rb.velocity = Vector3.zero;
+            self_rb.linearVelocity = Vector3.zero;
 
             freeze_inputs = false;
         }
